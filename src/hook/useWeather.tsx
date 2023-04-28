@@ -21,7 +21,7 @@ const useWeather = () =>{
 
     if(!cityName)return;
     const searchOptionResponse = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=3&appid=${
+      `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=3&appid=${
         import.meta.env.VITE_REACT_APP_API_KEY
       }`
     );
@@ -55,7 +55,7 @@ const useWeather = () =>{
       const lon:number =position.coords.longitude;
 
       const location = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_APP_API_KEY}`
       );
 
       const weather = await axios.get(
