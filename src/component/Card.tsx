@@ -8,9 +8,9 @@ type Props = {
 
 const Card = ({
     icon,
-    title,
-    info,
-    description
+    // title,
+    // info,
+    // description
 }:Props): JSX.Element => {
 
     return (

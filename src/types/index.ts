@@ -1,4 +1,4 @@
-import { City, Clouds, Coord, List, Main, Sys, Wind } from "./weather"
+import { City, List } from "./weather"
 
 export type optionType = {name:string,state:string,lat:number,lon:number,country:string}
 

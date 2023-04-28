@@ -1,6 +1,5 @@
-import { WeatherType } from "../types";
 import { List} from "../types/weather";
-import Card from "./Card";
+
 
 type Props = {
     list: List[]
