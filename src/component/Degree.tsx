@@ -1,4 +1,6 @@
+import { getHumidityValue, getPop, getVisibilityValue, getWindDirection } from "../helpers";
 import { List} from "../types/weather";
+import Card from "./Card";
 
 
 type Props = {
@@ -38,9 +40,23 @@ const Degree = ({ list }: Props): JSX.Element => {
                 </section>
 
                 {/* wind */}
-                <section className="flex justify-between text-zinc-700">
-                   
-
+                <section className="grid xl:grid-cols-6 md:grid-cols-2 sm:grid-cols-2 gap-1 justify-between text-zinc-700 mx-5">
+                    <Card icon="wind" title="wind" info={`${Math.round(weatherToday.wind.speed)} km/h`} description ={`${getWindDirection(Math.round(weatherToday.wind.deg))}, gusts ${weatherToday.wind.gust.toFixed(1)} km/h`}/>
+                    <Card icon="feels" title="feels like" info={<span >{Math.round(weatherToday.main.feels_like)}<sup>o</sup></span>}
+                        description={`Feels ${Math.round(weatherToday.main.feels_like) < Math.round(weatherToday.main.temp)
+                                ? 'colder'
+                                : 'warmer'
+                            }`} />
+                    <Card icon="pop" title="pop" info={`${Math.round(weatherToday.pop * 100)}%`}
+                        description={`${getPop(weatherToday.pop)}, clouds at ${weatherToday.clouds.all}%`} />
+                    <Card icon="pressure" title="pressure" info={`${weatherToday.main.pressure} hPa`}
+                        description={` ${Math.round(weatherToday.main.pressure) < 1013 ? 'Lower' : 'Higher'
+                            } than standard`} />
+                    <Card icon="humidity" title="Humidity" info={`${weatherToday.main.humidity} %`}
+                        description={getHumidityValue(weatherToday.main.humidity)} />
+                    <Card icon="visibility" title="Visibility" info={`${(weatherToday.visibility / 1000).toFixed()} km`}
+                        description={getVisibilityValue(weatherToday.visibility)} />
+                    
                 </section>
             </div>   
 
