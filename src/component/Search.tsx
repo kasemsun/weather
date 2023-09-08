@@ -35,7 +35,7 @@ const Search = ({
         >
           search
         </button>
-        <button className="mx-3" onClick={onCurrentLocation}>
+        <button className="ml-1" onClick={onCurrentLocation}>
           <FontAwesomeIcon size="xl" color="white" icon={faLocation} />
         </button>
         <ul className="absolute top-9 bg-white ml-l rounded-b-md">
